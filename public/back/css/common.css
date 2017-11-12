@@ -1,0 +1,175 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+.mt-150 {
+    margin-top: 150px;
+}
+
+.mb_20 {
+    margin-bottom: 20px;
+}
+
+table.table-bordered th,
+table.table-bordered tbody td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/*登录页面*/
+.bg-login {
+    background-color: #222D32;
+}
+
+/*首页    左边开始*/
+.aside_left {
+    width: 180px;
+    height: 100%;
+    background-color: #222d32;
+    /*固定定位  高度100%，不会滚动*/
+    position: fixed;
+    left: 0;
+    transition: all 1s;
+    z-index: 999;
+}
+
+.aside_left.now {
+    left: -180px;
+}
+
+.aside_left .brand {
+    width: 100%;
+    height: 50px;
+    background-color: #367fa9;
+}
+
+.aside_left .brand a {
+    display: block;
+    line-height: 50px;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.aside_left .user {
+    padding: 30px 20px;
+}
+
+.aside_left .user img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.aside_left .user span {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+/*菜单开始*/
+.menu ul li.active > a {
+    border-left: 3px solid #3c8dbc;
+    background-color: #1d1f21;
+    color: #ffffff;
+}
+
+.menu ul li a {
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    border: 3px solid transparent;
+    padding-left: 30px;
+    color: #aaaaaa;
+}
+
+.menu ul .child a {
+    padding-left: 50px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+.menu ul li .child a.active {
+    color: #ffffff;
+}
+
+/* 右边开始  */
+.aside-right {
+    height: 100%;
+    padding-left: 180px;
+    transition: all 1s;
+}
+
+.aside-right.now {
+    padding-left: 0;
+}
+
+.aside-right .topbar {
+    height: 50px;
+    background: #3c8dbc;
+    margin-bottom: 20px;
+    padding: 0 20px 0 200px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: all 1s;
+    z-index: 998;
+}
+
+.aside-right .topbar.now {
+    padding-left: 20px;
+}
+
+.aside-right .topbar a {
+    display: block;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 50px;
+}
+
+/*首页统计图表*/
+.left_histogram,
+.right_pie {
+    width: 45%;
+    height: 400px
+}
+
+/*分类管理 二级分类 */
+.fileUpload_box {
+    position: relative;
+}
+
+input[type='file'] {
+    width: 82px;
+    height: 34px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+input[type='file']:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}

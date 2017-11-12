@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/*默认所有图片100%*/
+img {
+    width: 100%;
+    display: block;
+    vertical-align: middle;
+}
+
+html, body {
+    height: 100%;
+}
+
+/*布局容器*/
+.container {
+    width: 100%;
+    height: 100%;
+    /*设置最小宽度 和 最大宽度*/
+    min-width: 320px;
+    max-width: 640px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 45px;
+    padding-bottom: 55px;
+    /*overflow: hidden;*/
+}
+
+/*头部*/
+.container .header {
+    height: 45px;
+    width: 100%;
+    background-color: #069;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*标题*/
+.container .header h4 {
+    text-align: center;
+    line-height: 45px;
+    color: #ffffff;
+    font-weight: 400;
+    margin: 0;
+}
+
+/*头部图标 */
+.header .icon-left,
+.header .icon-right {
+    position: absolute;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    color: #ffffff;
+}
+
+.icon-left {
+    left: 0;
+}
+
+.icon-right {
+    right: 0;
+}
+
+/*主体内容*/
+.content {
+    width: 100%;
+    height: 100%;
+    /*因为区域滚动默认是 absolute,所以相对定位，否则主体内容会跑到顶部*/
+    position: relative;
+    overflow: hidden;
+}
+
+/*产品区域*/
+.product {
+    padding:10px;
+}
+
+
+.product .item{
+    width:48%;
+    float: left;
+    text-align: center;
+    padding:10px 0;
+    box-shadow: 0 0 5px #cccc;
+}
+.product img {
+    width: 100%;
+}
+
+/*为所有 基数的图片设置宽度  */
+.product .item:nth-child(odd) {
+    margin-right: 4%;
+}
+
+.product .item .title {
+    color: #007aff;
+    font-size: 18px;
+}
+.product .item .price span {
+    color: red;
+}
+.product .item .price del {
+    color: #666
+}
+
+
+/*底部菜单*/
+.footer {
+    width:100%;
+    height:55px;
+    position: absolute;
+    left:0;
+    bottom:0;
+    background-color: #069;
+    overflow: hidden;
+}
+
+.footer li {
+    float: left;
+    width: 25%;
+    text-align: center;
+    padding:10px 0;
+}
+.footer li a {
+    color: #ffffff;
+}
+.footer a p {
+    color: #ffffff;
+    font-size: 12px;
+    /*mui 为p标签添加了margin值 ，出现滚动条，设置footer为 overflow:hidden*/
+    margin:0;
+}
+
+.footer li.active a {
+    color: darkorange;
+}
+.footer li.active a p {
+    color: darkorange;
+}
+
+
+
+
+

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理-二级分类</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+
+<!--左侧开始-->
+<section class="aside_left">
+    <!--品牌-->
+    <div class="brand">
+        <a href="index.html">巅峰乐淘</a>
+    </div>
+    <!--用户名-->
+    <div class="user">
+        <img src="images/default.png" alt="">
+        <span>超级管理员</span>
+    </div>
+    <!--菜单开始-->
+    <div class="menu">
+        <ul>
+            <li class="active">
+                <a href="user.html">
+                    <i class="glyphicon glyphicon-user"></i>
+                    用户管理
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="glyphicon glyphicon-list"></i>
+                    分类管理
+                </a>
+                <div class="child" style="display: block;">
+                    <a href="categoryFirst.html">一级分类</a>
+                    <a href="categorySecond.html" class="active">二级分类</a>
+                </div>
+            </li>
+            <li>
+                <a href="product.html">
+                    <i class="glyphicon glyphicon-tags"></i>
+                    商品管理
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!--右边主体-->
+<section class="aside-right">
+    <!--顶部通栏-->
+    <div class="topbar">
+        <a href="javascript:;" class="pull-left btn_menu">
+            <i class="glyphicon glyphicon-align-justify"></i>
+        </a>
+        <a href="javascript:;" class="pull-right btn_loginOut">
+            <i class="glyphicon glyphicon-log-out"></i>
+        </a>
+    </div>
+
+    <div class="container-fluid">
+        <!--路径导航-->
+        <ol class="breadcrumb">
+            <li><a href="#">管理系统</a></li>
+            <li><a href="#">分类管理</a></li>
+            <li class="active">二级分类</li>
+        </ol>
+        <!--内容区域-->
+        <div class="content">
+            <!--添加分类 按钮 -->
+            <button type="button" class="btn btn-default mb_20 add_category">添加分类</button>
+            <!--表格-->
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th width="10%">序号</th>
+                        <th width="30%">一级分类名称</th>
+                        <th width="30%">二级分类名称</th>
+                        <th width="30%">二级分类LOGO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>女士馆</td>
+                        <td>361</td>
+                        <td>
+                            <img src="images/none.png" width="50px" height="50px" alt="">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--分页-->
+            <div class="pages text-right">
+                <ul id="paginator"></ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 二级分类 数据展示模板 -->
+<script type="text/html" id="twoCategoryTmp">
+    {{each rows v i}}
+        <tr>
+            <td>{{(page-1)*size+i+1}}</td>
+            <td>{{v.categoryName}}</td>
+            <td>{{v.brandName}}</td>
+            <td>
+                <img src="{{v.brandLogo ? v.brandLogo : 'images/none.png'}}" width="50px" height="50px" alt="">
+            </td>
+        </tr>
+    {{/each}}
+</script>
+
+<!-- 添加分类中 获取一级分类下拉框数据  模板引擎-->
+<script type="text/html" id="addCategoryTmp">
+        {{each rows v i}}
+            <li><a href="javascript:;" data-id = "{{v.id}}">{{v.categoryName}}</a></li>
+        {{/each}}
+</script>
+
+
+
+<!--模态框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="modal_loginOut">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">温馨提示</h4>
+            </div>
+            <div class="modal-body text-danger">
+                <p>
+                    <i class="glyphicon glyphicon-info-sign"></i>
+                    你确定要退出后台管理系统吗？
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-default btn-confirm">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--添加分类 模态框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="modal_addCategories">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">添加分类</h4>
+            </div>
+            <div class="modal-body text-danger">
+                <!--定义了 id 为 form ,因为提交按钮在表单外面，有些表单元素无法提交()，所以在 提交按钮中调用 form-->
+                <form action="" id="form">
+                    <!--下拉菜单  bootstrap 组件-->
+                   <div class="form-group">
+                       <div class="dropdown">
+                           <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-expanded="true" aria-haspopup="true">
+                               <span class="chooseCategory">请选择一级分类</span>
+                               <span class="caret"></span>
+                               <!--隐藏 id  目的： 当下拉选中某个分类时 得到当前 id 去添加数据-->
+                               <input type="hidden" name="categoryId" id="categoryId">
+                           </button>
+                           <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                               <li><a href="#">女士馆</a></li>
+                           </ul>
+                       </div>
+                   </div>
+                    <!--文本框-->
+                    <div class="form-group">
+                        <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类名称">
+                    </div>
+                    <!--图片上传-->
+                    <div class="form-group">
+                        <div class="fileUpload_box">
+                            <button type="button" class="btn btn-default">上传图片</button>
+                            <!--使用 jQuery的 fileUpload 插件上传图片
+                                1. 引入文件
+                                2. 必须设置： data-url = '服务器地址'
+                                3. multiple 上传多张图片需要设置
+                            -->
+                            <input type="file" class="btn btn-default" name="pic1" id="fileUpload" data-url="/category/addSecondCategoryPic">
+                        </div>
+                    </div>
+                    <!--图片预览-->
+                    <div class="form-group img_box">
+                        <img src="images/none.png" width="100px" height="100px" alt="">
+                        <!--隐藏 图片logo -->
+                        <input type="hidden" name="brandLogo" id="brandLogo">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" form="form" class="btn btn-primary" data-dismiss="modal">取消</button>
+                <button type="submit" form="form" class="btn btn-default">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<!--表单验证-->
+<script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<!--分页-->
+<script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<!--图片上传 必须引用 三个（依赖jQuery）-->
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<!--这个跨域时要引用，不跨域可以不引用，现在没有用到跨域-->
+<script src="lib/jquery-fileupload/jquery.iframe-transport.js"></script>
+<!--这个放后面，不然会报错-->
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
+<!--模板引擎-->
+<script src="lib/art-template/template-web.js"></script>
+<script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/echarts/echarts.min.js"></script>
+<script src="js/commom.js"></script>
+<script src="js/categorySecond.js"></script>
+</body>
+</html>
