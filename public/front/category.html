@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+
+    <link rel="icon" href="favicon.ico">
+    <!--引入 mui css 文件-->
+    <link rel="stylesheet" href="lib/mui/css/mui.min.css">
+    <link rel="stylesheet" href="lib/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/category.css">
+</head>
+<body>
+
+
+<!--布局容器-->
+<div class="container">
+    <!--头部-->
+    <div class="header">
+        <!--左边回退图标 -->
+        <a href="javascript:history.go(-1)" class="icon-left"><i class="mui-icon mui-icon-arrowleft"></i></a>
+        <h4>乐淘云购</h4>
+        <!--右边搜索图标-->
+        <a href="search.html" class="icon-right"><i class="fa fa-search"></i></a>
+    </div>
+
+    <!--主体容器-->
+    <div class="content">
+        <!--左边导航菜单 -->
+        <div class="menuNav_left">
+            <div class="mui-scroll-wrapper">
+                <!--这里放置DOM元素内容-->
+                <ul class="mui-scroll">
+                    <li class="active">
+                        <a href="javascript:;">运动管</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">运动管</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--右边 品牌展示-->
+        <div class="brandShow_right">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <ul class="mui-clearfix">
+                        <li>
+                            <a href="javascript:;">
+                                <img src="images/brand1.png" alt="">
+                                <p>耐克</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="images/brand1.png" alt="">
+                                <p>耐克</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="images/brand1.png" alt="">
+                                <p>耐克</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="images/brand1.png" alt="">
+                                <p>耐克</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--底部导航菜单-->
+    <div class="footer">
+        <ul class="mui-clearfix">
+            <li class="active">
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                    <p>首页</p>
+                </a>
+            </li>
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-bars"></i>
+                    <p>分类</p>
+                </a>
+            </li>
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-shopping-cart"></i>
+                    <p>购物车</p>
+                </a>
+            </li>
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-user"></i>
+                    <p>会员中心</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+<!--左边导航菜单 模板引擎-->
+<script type="text/html" id="categoryTmp_l">
+    {{each rows v i}}
+    <li data-id="{{v.id}}" class="{{ i==0 ? 'active' : ''}}">
+        <a href="javascript:;">{{v.categoryName}}</a>
+    </li>
+    {{/each}}
+</script>
+
+<!--右边品牌展示 模板引擎-->
+<script type="text/html" id="brandShowTmp">
+    {{if rows.length === 0}}
+        <p class="info">暂时没有更多分类数据</p>
+    {{/if}}
+
+    {{each rows v i}}
+        <li>
+            <a href="#">
+                <img src="{{v.brandLogo ? v.brandLogo : 'images/brand1.png'}}" alt="">
+                <p>{{v.brandName}}</p>
+            </a>
+        </li>
+    {{/each}}
+</script>
+
+
+
+<!--引入模板引擎-->
+<script src="lib/art-template/template-web.js"></script>
+<!--引入 mui 框架-->
+<script src="lib/mui/js/mui.min.js"></script>
+<!--引入 zepto 依赖 jQuery-->
+<script src="lib/zepto/zepto.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/category.js"></script>
+
+</body>
+</html>

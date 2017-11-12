@@ -1,0 +1,58 @@
+/*左边菜单导航*/
+.content .menuNav_left {
+    width: 89px;
+    height: 100%;
+    background: #ffffff;
+    /*要相对定位，因为区域滚动默认是 全屏显示*/
+    position: relative;
+    float: left;
+}
+
+.menuNav_left li {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background: #f3f4f5;
+}
+
+.menuNav_left li.active a {
+    background: #ffffff;
+    border-right-color: #ffffff;
+}
+
+.menuNav_left li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #666;
+}
+
+/*右边品牌展示 */
+.brandShow_right {
+    height: 100%;
+    /*要设置相对定位 ，因为区域滚动默认是绝对定位*/
+    position: relative;
+    /*触发 BFC*/
+    overflow: hidden;
+}
+
+.brandShow_right li {
+    width: 33.333%;
+    float: left;
+    text-align: center;
+}
+
+.brandShow_right li img {
+    width: 62px;
+    height: 62px;
+    margin: 0 auto;
+    padding-top:10px;
+}
+
+/*提示信息*/
+.info {
+    padding: 10px;
+}
