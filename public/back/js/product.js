@@ -203,8 +203,8 @@ $(function () {
          * */
 
         data += "&picAddr1=" + $img[0].dataset.src + "&picName1=" + $img[0].dataset.picName;
-        data += "&picAddr2=" + $img[1].dataset.src + "&picName1=" + $img[1].dataset.picName;
-        data += "&picAddr1=" + $img[2].dataset.src + "&picName1=" + $img[2].dataset.picName;
+        data += "&picAddr2=" + $img[1].dataset.src + "&picName2=" + $img[1].dataset.picName;
+        data += "&picAddr3=" + $img[2].dataset.src + "&picName3=" + $img[2].dataset.picName;
 
         //发送 Ajax 请求数据，添加商品
         $.ajax({
