@@ -67,7 +67,7 @@ router.get("/queryCart", function (req, res) {
           for (let n = 0; n < data.length; n++)
             if (data[n].productId == picData[l].productId) {
               data[n].pic[data[n].pic.length] = picData[l];
-              console.log(picData[l]);
+              //console.log(picData[l]);
             }
         }
         res.send(data);

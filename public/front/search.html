@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>搜索中心</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="lib/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/mui/css/mui.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+
+<!--布局容器-->
+<div class="container">
+    <!--头部区域-->
+    <div class="header">
+        <!--左边回退箭头-->
+        <a href="javascript:history.go(-1)" class="icon-left"><i class="mui-icon mui-icon-arrowleft"></i></a>
+        <h4>搜索中心</h4>
+    </div>
+
+    <!--内容区域-->
+    <div class="content">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <!--这里放置DOM真实元素-->
+                <!--搜索框-->
+                <div class="search">
+                    <input type="text" placeholder="请输入搜索关键字">
+                    <button type="button" class="mui-btn-blue btn_search">搜索</button>
+                </div>
+                <!--搜索历史记录-->
+                <div class="history">
+                    <div class="title mui-clearfix">
+                        <span class="mui-pull-left">搜索历史</span>
+                        <span class="mui-pull-right btn_clear "><i class=" fa fa-trash"></i>清空记录</span>
+                    </div>
+                    <!--历史记录列表展示-->
+                    <div class="historyList">
+                        <ul class="mui-clearfix">
+                            <li>
+                                <a href="#">1111111</a>
+                                <i class="mui-pull-right mui-icon mui-icon-closeempty btn_del"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--底部菜单-->
+    <div class="footer">
+        <ul class="mui-clearfix">
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                    <p>首页</p>
+                </a>
+            </li>
+            <li>
+                <a href="category.html">
+                    <i class="fa fa-bars"></i>
+                    <p>分类</p>
+                </a>
+            </li>
+            <li>
+                <a href="shoppingCart.html">
+                    <i class="fa fa-shopping-cart"></i>
+                    <p>购物车</p>
+                </a>
+            </li>
+            <li>
+                <a href="user.html">
+                    <i class="fa fa-user"></i>
+                    <p>会员中心</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+<!--定义搜索历史记录模板-->
+<script type="text/html" id="historyTmp">
+        {{if arr.length === 0}}
+            <p>没有搜索历史记录</p>
+        {{/if}}
+
+        {{if arr.length > 0}}
+        <div class="title mui-clearfix">
+            <span class="mui-pull-left">搜索历史</span>
+            <span class="mui-pull-right btn_clear "><i class=" fa fa-trash"></i>清空记录</span>
+        </div>
+        <div class="historyList">
+            <ul class="mui-clearfix">
+                {{each arr v i}}
+                <li>
+                    <a href="productList.html?key={{v}}">{{v}}</a>
+                    <i data-index = "{{i}}" class="mui-pull-right mui-icon mui-icon-closeempty btn_del"></i>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/if}}
+</script>
+
+
+
+
+<!--引入模板引擎-->
+<script src="lib/art-template/template-web.js"></script>
+<!--引入 mui-->
+<script src="lib/mui/js/mui.min.js"></script>
+<!--引入 zepto-->
+<script src="lib/zepto/zepto.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/search.js"></script>
+</body>
+</html>

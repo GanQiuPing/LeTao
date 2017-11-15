@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/*商品列表*/
+.category_Sort {
+    height:30px;
+    line-height:30px;
+    background-color: #eee;
+    padding: 0 10px;
+}
+.category_Sort a {
+    float: left;
+    width: 25%;
+    color: #333;
+    font-size: 12px;
+    text-align: center;
+}
+.category_Sort a.active {
+    color: darkorange;
+}

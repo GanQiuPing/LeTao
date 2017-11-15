@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>个人中心</title>
+    <link rel="icon" href="favicon.ico">
+    <!--引入 mui css 文件-->
+    <link rel="stylesheet" href="lib/mui/css/mui.min.css">
+    <link rel="stylesheet" href="lib/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/user.css">
+
+</head>
+<body>
+
+<!--主体布局容器-->
+<div class="container">
+    <!--头部-->
+    <div class="header">
+        <!--左边回退箭头-->
+        <a href="index.html" class="icon-left"><i class="fa fa-home"></i></a>
+        <h4>个人中心</h4>
+    </div>
+
+    <!--主体内容-->
+    <div class="content">
+        <!--登录功能   使用mui 列表插件   【用户信息：使用 图文列表】-->
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell mui-media">
+                <a href="javascript:;" class="userInfo">
+                    <img src="images/user.jpg" class="mui-media-object mui-pull-left" alt="">
+                    <div class="mui-media-body">
+                        小轩轩
+                        <p class="mui-ellipsis">绑定手机：1589562354</p>
+                    </div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a href="javascript:;" class="mui-navigate-right">账号与安全</a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a href="shoppingCart.html" class="mui-navigate-right">我的购物车</a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a href="javascript:;" class="mui-navigate-right">收获地址管理</a>
+            </li>
+        </ul>
+        <!--退出按钮-->
+        <div class="loginOut">
+            <a type="button" class="mui-btn mui-btn-default mui-block">退出</a>
+        </div>
+
+    </div>
+
+    <!--底部-->
+    <div class="footer">
+        <ul class="mui-clearfix">
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                    <p>首页</p>
+                </a>
+            </li>
+            <li>
+                <a href="category.html">
+                    <i class="fa fa-bars"></i>
+                    <p>分类</p>
+                </a>
+            </li>
+            <li>
+                <a href="shoppingCart.html">
+                    <i class="fa fa-shopping-cart"></i>
+                    <p>购物车</p>
+                </a>
+            </li>
+            <li class="active">
+                <a href="user.html">
+                    <i class="fa fa-user"></i>
+                    <p>会员中心</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--个人信息 模板引擎-->
+<script type="text/html" id="infoTmp">
+    <img src="images/user.jpg" class="mui-media-object mui-pull-left" alt="">
+    <div class="mui-media-body">
+        {{username}}
+        <p class="mui-ellipsis">绑定手机：{{mobile}}</p>
+    </div>
+</script>
+
+
+
+
+<script src="lib/art-template/template-web.js"></script>
+<!--引入 mui 框架-->
+<script src="lib/mui/js/mui.min.js"></script>
+<script src="lib/zepto/zepto.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/user.js"></script>
+</body>
+</html>

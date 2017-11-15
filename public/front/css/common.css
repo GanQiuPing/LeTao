@@ -82,19 +82,22 @@ html, body {
 
 /*产品区域*/
 .product {
-    padding:10px;
+    padding: 0 10px 10px;
 }
 
-
-.product .item{
-    width:48%;
+/*每一个项*/
+.product .item {
+    width: 48%;
     float: left;
     text-align: center;
-    padding:10px 0;
+    padding: 10px 5px;
     box-shadow: 0 0 5px #cccc;
+    margin-top: 10px;
 }
-.product img {
+
+.product  .item img {
     width: 100%;
+    height: 146px;
 }
 
 /*为所有 基数的图片设置宽度  */
@@ -106,21 +109,22 @@ html, body {
     color: #007aff;
     font-size: 18px;
 }
+
 .product .item .price span {
     color: red;
 }
+
 .product .item .price del {
     color: #666
 }
 
-
 /*底部菜单*/
 .footer {
-    width:100%;
-    height:55px;
+    width: 100%;
+    height: 55px;
     position: absolute;
-    left:0;
-    bottom:0;
+    left: 0;
+    bottom: 0;
     background-color: #069;
     overflow: hidden;
 }
@@ -129,26 +133,80 @@ html, body {
     float: left;
     width: 25%;
     text-align: center;
-    padding:10px 0;
+    padding: 10px 0;
 }
+
 .footer li a {
     color: #ffffff;
 }
+
 .footer a p {
     color: #ffffff;
     font-size: 12px;
     /*mui 为p标签添加了margin值 ，出现滚动条，设置footer为 overflow:hidden*/
-    margin:0;
+    margin: 0;
 }
 
 .footer li.active a {
     color: darkorange;
 }
+
 .footer li.active a p {
     color: darkorange;
 }
 
+/*搜索中心*/
+.search {
+    padding: 10px;
+    position: relative;
+}
 
+.search input {
+    width: 100%;
+    height: 34px;
+    border: 1px solid #069;
+    font-size: 14px;
+    border-radius: 5px;
+    text-align: left;
+    margin: 0;
+}
 
+/*搜索按钮*/
+.search .btn_search {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 0 5px 5px 0;
+    background: #069;
+    border: none;
+    height: 34px;
+    width: 69px;
+    text-align: center;
+}
 
-
+/*页面刷新等待效果*/
+.loading .mui-icon-spinner {
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%);*/
+    /*top: 200px;*/
+    /*color: #069;*/
+    min-height: 250px;
+    width: 100%;
+    text-align: center;
+    line-height: 250px;
+}
+.loading .mui-icon {
+    color:#069;
+    animation: rotateLoading 1s infinite;
+}
+@keyframes rotateLoading {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}

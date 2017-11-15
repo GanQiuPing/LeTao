@@ -1,0 +1,25 @@
+/*注册*/
+.form {
+    padding: 10px;
+}
+
+.form .getCode input {
+    width: 60%;
+}
+
+.form .getCode button {
+    width: 35%;
+    height: 40px;
+    line-height: 40px;
+    padding:0;
+}
+.form .btnRegister {
+    padding: 5px 0;
+}
+.form .server {
+    font-size: 12px;
+}
+.form .disabled {
+    background: #999;
+    border-color: #999;
+}

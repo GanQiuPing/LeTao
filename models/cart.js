@@ -39,7 +39,8 @@ Cart.deleteCart = function (id, callback) {
       idStr = idStr + "," + id[i];
     }
   }
-
+   console.log(idStr);
+   console.log("aaaaaaaaaaaaaaaaaaaaaa");
   var delSql = "UPDATE cart SET isDelete =0 WHERE id in (" + idStr + ")";
   db.query(delSql, function (err, res) {
     if (err) {

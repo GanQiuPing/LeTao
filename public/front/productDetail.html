@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>商品详情</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="lib/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/mui/css/mui.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/productDetail.css">
+</head>
+<body>
+
+<!--主体布局-->
+<div class="container">
+    <!--头部区域-->
+    <div class="header">
+        <a href="javascript:history.go(-1);" class="icon-left"><i class="mui-icon mui-icon-arrowleft"></i></a>
+        <h4>商品详情</h4>
+        <a href="javascript:location.reload();" class="icon-right"><i class="mui-icon mui-icon-reload"></i></a>
+    </div>
+
+    <!--主体内容-->
+    <div class="content">
+        <!--区域滚动-->
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <!--轮播图-->
+                <div class="mui-slider">
+                    <div class="mui-slider-group mui-slider-loop">
+                        <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/banner2.png"
+                                                                                                alt=""></a></div>
+                        <div class="mui-slider-item"><a href="#"><img src="images/banner1.png" alt=""></a></div>
+                        <div class="mui-slider-item"><a href="#"><img src="images/banner2.png" alt=""></a></div>
+                        <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/banner1.png"
+                                                                                                alt=""></a></div>
+                    </div>
+
+                    <!--小圆点-->
+                    <div class="mui-slider-indicator">
+                        <!--<div class="mui-indicator mui-active"></div>-->
+                        <!--<div class="mui-indicator"></div>-->
+                    </div>
+                </div>
+                <!--标题-->
+                <div class="proName items">
+                    <strong>匡威三星标1970s converse复刻 142334c 144757c三星标黑色高帮</strong>
+                </div>
+                <!--价格-->
+                <div class="price items">
+                    价格：
+                    <span>&yen;562</span>
+                    <del>&yen;364</del>
+                </div>
+                <!--尺码-->
+                <div class="size items">
+                    尺码：
+                    <span>11</span>
+                    <span>11</span>
+                    <span>11</span>
+                    <span>11</span>
+                    <span>11</span>
+                    <span>11</span>
+                    <span>11</span>
+                    <span>11</span>
+                    <span>11</span>
+                    <span>11</span>
+                    <span>11</span>
+                    <span>11</span>
+                    <span>11</span>
+                </div>
+                <!--数量 -->
+                <div class="num items">
+                    数量：
+                    <div class="mui-numbox" data-numbox-min="1" data-numbox-max="999">
+                        <button type="button" class="mui-btn mui-numbox-btn-minus"></button>
+                        <input type="number" class="mui-numbox-input">
+                        <button type="button" class="mui-btn mui-numbox-btn-plus"></button>
+                    </div>
+                    <span>剩余数量：999</span>
+                </div>
+                <!--详情-->
+                <div class="detail items">
+                    详情：描述
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--底部-->
+    <div class="bottom">
+        <a href="shoppingCart.html" class="mui-btn-link">去购物车</a>
+        <div class="joinCartAndBuy mui-pull-right">
+            <button type="button" class="mui-btn-danger btn_cart">加入购物车</button>
+            <button type="button" class="mui-btn-warning">立即购买</button>
+        </div>
+    </div>
+</div>
+
+<!--定义产品详情模板引擎-->
+<script type="text/html" id="proDetailTmp">
+    <!--轮播图-->
+    <div class="mui-slider">
+        <div class="mui-slider-group mui-slider-loop">
+            <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="{{pic[pic.length-1].picAddr}}" alt=""></a></div>
+            {{each pic v i}}
+            <div class="mui-slider-item"><a href="#"><img src="{{v.picAddr}}" alt=""></a></div>
+            {{/each}}
+            <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="{{pic[0].picAddr}}" alt=""></a></div>
+        </div>
+        <!--小圆点-->
+        <div class="mui-slider-indicator">
+            {{each pic v i}}
+            <div class="mui-indicator {{i==0 ? 'mui-active': ''}}"></div>
+            {{/each}}
+        </div>
+    </div>
+        <!--标题-->
+        <div class="proName items">
+            <strong>{{proName}}</strong>
+        </div>
+        <!--价格-->
+        <div class="price items">
+            价格：
+            <span>&yen;{{price}}</span>
+            <del>&yen;{{oldPrice}}</del>
+        </div>
+        <!--尺码-->
+        <div class="size items">
+            尺码：
+            <%
+            var temp = size.split("-");
+            for(var i = temp[0]; i<= temp[1];i++){
+            %>
+            <span class="chooseSize">{{i}}</span>
+            <% } %>
+        </div>
+        <!--数量 -->
+        <div class="num items">
+            数量：
+            <div class="mui-numbox" data-numbox-min="1" data-numbox-max="{{num}}">
+                <button type="button" class="mui-btn mui-numbox-btn-minus">-</button>
+                <input type="number" class="mui-numbox-input" value="1">
+                <button type="button" class="mui-btn mui-numbox-btn-plus">+</button>
+            </div>
+            <span>剩余数量：{{num}}</span>
+        </div>
+        <!--详情-->
+        <div class="detail items">
+            详情：{{proDesc}}
+        </div>
+</script>
+
+
+<!--引入引擎模板-->
+<script src="lib/art-template/template-web.js"></script>
+<!--引入 mui -->
+<script src="lib/mui/js/mui.min.js"></script>
+<!--引入 zepto-->
+<script src="lib/zepto/zepto.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/productDetail.js"></script>
+</body>
+</html>

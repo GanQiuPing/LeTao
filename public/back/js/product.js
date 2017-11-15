@@ -188,7 +188,7 @@ $(function () {
          *   图片地址要求格式：
          *   picName1=1.png&picAddr1=product/1.png
          *  picName2=2.png&picAddr2=product/2.png
-         *  picName3=3.png&picAddr3=product/3.png
+         *  picName3=product6.png&picAddr3=product/product6.png
          * */
         //获取表单中的所有name元素
         var data = $form.serialize();

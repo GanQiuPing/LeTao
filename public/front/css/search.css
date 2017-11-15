@@ -1,0 +1,36 @@
+
+
+/*搜索历史*/
+.history {
+    padding: 5px 10px 10px;
+}
+
+.history .title span {
+    color: #999;
+    font-size: 12px;
+}
+
+/*历史记录列表展示*/
+.historyList ul {
+    border: 1px dashed #ccc;
+    margin-top: 10px;
+}
+
+.historyList ul li {
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px dashed #cccccc;
+    padding-left:10px;
+    font-size: 14px;
+}
+/*最后一个li标签  bottom 设置为 none*/
+.historyList ul li:last-child {
+    border-bottom: none;
+}
+
+
+/*右边 x 按钮 */
+.historyList li i {
+    height:30px;
+    line-height:30px;
+}
