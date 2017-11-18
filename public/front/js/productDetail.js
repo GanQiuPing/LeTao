@@ -15,13 +15,23 @@ $(function () {
         },
         success: function (backData) {
             console.log(backData);
-            //使用模板引擎  渲染数据
-            $('.mui-scroll').html(template('proDetailTmp', backData));
 
-            //动态生成 轮播图  需手动设置初始化  轮播图片
-            mui('.mui-slider').slider({
-                interval: 1000
-            })
+            // 给商品详情 添加等待 刷新效果图
+            $('.product').html('<div class="loading"><span class="mui-icon mui-icon-spinner"></span></div>');
+
+            // 定义计时器， 让刷新效果图先执行，再渲染
+            setTimeout(function () {
+                //使用模板引擎  渲染数据
+                $('.mui-scroll').html(template('proDetailTmp', backData));
+                //动态生成 轮播图  需手动设置初始化  轮播图片
+                mui('.mui-slider').slider({
+                    interval: 1000
+                })
+                // $('.product').html('');
+            }, 500);
+
+
+
 
             //动态添加  数字框  需要手动初始化
             mui('.mui-numbox').numbox();

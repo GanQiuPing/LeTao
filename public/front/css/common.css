@@ -93,11 +93,14 @@ html, body {
     padding: 10px 5px;
     box-shadow: 0 0 5px #cccc;
     margin-top: 10px;
+    /*图片不一样大小，会出现高度不一样现象*/
+    height: 45%;
 }
 
 .product  .item img {
     width: 100%;
-    height: 146px;
+    /*设置图片高度  方面缩小会变形*/
+    /*height: 146px;*/
 }
 
 /*为所有 基数的图片设置宽度  */
